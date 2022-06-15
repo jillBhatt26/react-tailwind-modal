@@ -1,9 +1,10 @@
-import { FC, useState } from 'react';
+import { FC } from 'react';
 import Modal from './components/Modal';
+import { useModalContext } from './contexts/Modal';
 
 const App: FC = (): JSX.Element => {
-    // component states
-    const [showModal, setShowModal] = useState(false);
+    // context
+    const { showModal, setShowModal } = useModalContext();
 
     return (
         <div className="text-center h-screen py-1 bg-body">
@@ -12,7 +13,7 @@ const App: FC = (): JSX.Element => {
             <button
                 className="text-xl pt-1 pb-2 px-3 bg-slate-800 text-white rounded my-5
         "
-                onClick={() => setShowModal(!showModal)}
+                onClick={() => setShowModal(true)}
             >
                 Open
             </button>
