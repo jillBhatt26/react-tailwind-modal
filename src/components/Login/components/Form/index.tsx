@@ -47,11 +47,7 @@ const LoginForm: FC = (): JSX.Element => {
                     <input
                         type="text"
                         placeholder="Username or Email"
-                        className={`px-3 py-3 placeholder-slate-300 text-slate-600 relative bg-white rounded text-sm border-0 shadow outline-none focus:outline-none focus:ring w-full pl-10 md:text-md lg:text-lg ${
-                            formik.errors &&
-                            formik.errors.usernameOrEmail &&
-                            'border border-red-600'
-                        }`}
+                        className="px-3 py-3 placeholder-slate-300 text-slate-600 relative bg-white rounded text-sm border-0 shadow outline-none focus:outline-none focus:ring w-full pl-10 md:text-md lg:text-lg"
                         id="usernameOrEmail"
                         name="usernameOrEmail"
                         value={formik.values.usernameOrEmail}
@@ -71,11 +67,7 @@ const LoginForm: FC = (): JSX.Element => {
                     <input
                         type="password"
                         placeholder="Password"
-                        className={`px-3 py-3 placeholder-slate-300 text-slate-600 relative bg-white rounded text-sm border-0 shadow outline-none focus:outline-none focus:ring w-full pl-10 md:text-md lg:text-lg ${
-                            formik.errors &&
-                            formik.errors.password &&
-                            'border border-red-600'
-                        }`}
+                        className="px-3 py-3 placeholder-slate-300 text-slate-600 relative bg-white rounded text-sm border-0 shadow outline-none focus:outline-none focus:ring w-full pl-10 md:text-md lg:text-lg"
                         name="password"
                         id="password"
                         value={formik.values.password}
