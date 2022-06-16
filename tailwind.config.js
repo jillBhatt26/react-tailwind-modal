@@ -4,7 +4,7 @@ module.exports = {
     theme: {
         extend: {
             colors: {
-                formBG: '#f1f2f6'
+                formBG: '#f5f6fa'
             }
         }
     },
