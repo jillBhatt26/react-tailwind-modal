@@ -1,4 +1,5 @@
 import { FC } from 'react';
+import Login from './components/Login';
 import Modal from './components/Modal';
 import { useModalContext } from './contexts/Modal';
 
@@ -18,7 +19,9 @@ const App: FC = (): JSX.Element => {
                 Open
             </button>
 
-            <Modal showModal={showModal} setShowModal={setShowModal} />
+            <Modal showModal={showModal} setShowModal={setShowModal}>
+                <Login showModal={showModal} setShowModal={setShowModal} />
+            </Modal>
         </div>
     );
 };
