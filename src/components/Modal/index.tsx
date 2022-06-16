@@ -1,16 +1,15 @@
 import { FC, useRef } from 'react';
 import { useClickAway } from 'react-use';
 import { IModalProps } from './interfaces';
+import { useModalContext } from '../../contexts/Modal';
 
-const Modal: FC<IModalProps> = ({
-    children,
-    showModal,
-    setShowModal
-}): JSX.Element => {
+const Modal: FC<IModalProps> = ({ children, showModal }): JSX.Element => {
     // refs
     const modalRef = useRef<HTMLDivElement>(null);
 
-    useClickAway(modalRef, () => setShowModal(false));
+    const { closeModal } = useModalContext();
+
+    useClickAway(modalRef, closeModal);
 
     return (
         <div

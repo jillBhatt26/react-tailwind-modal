@@ -10,11 +10,25 @@ const ModalContext = createContext<IModalContextProviderValue | null>(null);
 const ModalContextProvider: FC<IModalContextProviderProps> = ({ children }) => {
     // context states
     const [showModal, setShowModal] = useState<boolean>(false);
+    const [isModalVisible, setIsModalVisible] = useState<boolean>(false);
+
+    const closeModal = () => {
+        setShowModal(false);
+        setIsModalVisible(false);
+    };
+
+    const openModal = () => {
+        setShowModal(true);
+        setIsModalVisible(true);
+    };
 
     // context values
     const values: IModalContextProviderValue = {
         showModal,
-        setShowModal
+        setShowModal,
+        isModalVisible,
+        closeModal,
+        openModal
     };
 
     return useMemo(

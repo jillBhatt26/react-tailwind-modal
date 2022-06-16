@@ -1,7 +1,6 @@
-import { Dispatch, ReactNode, SetStateAction } from 'react';
+import { ReactNode } from 'react';
 
 export interface IModalProps {
     children: ReactNode;
     showModal: boolean;
-    setShowModal: Dispatch<SetStateAction<boolean>>;
 }

@@ -1,9 +1,10 @@
-import { FC } from 'react';
+import { FC, useEffect } from 'react';
 import { RiLockPasswordFill } from 'react-icons/ri';
 import { MdAlternateEmail } from 'react-icons/md';
 import { FormikValues, useFormik } from 'formik';
 import * as Yup from 'yup';
 import { ILoginFormFields } from './interfaces';
+import { useModalContext } from '../../../../contexts/Modal';
 
 const LoginForm: FC = (): JSX.Element => {
     // formik hook
@@ -31,6 +32,15 @@ const LoginForm: FC = (): JSX.Element => {
             resetForm();
         }
     });
+
+    const { isModalVisible } = useModalContext();
+
+    useEffect(() => {
+        if (!isModalVisible) {
+            formik.resetForm();
+        }
+        // eslint-disable-next-line
+    }, [isModalVisible]);
 
     return (
         <form
@@ -86,6 +96,7 @@ const LoginForm: FC = (): JSX.Element => {
                 <button
                     type="reset"
                     className="text-gray-100 bg-red-500 ml-2 mr-1 px-4 py-2 rounded inline-block"
+                    onClick={() => formik.resetForm()}
                 >
                     Cancel
                 </button>

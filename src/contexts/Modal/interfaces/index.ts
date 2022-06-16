@@ -7,4 +7,7 @@ export interface IModalContextProviderProps {
 export interface IModalContextProviderValue {
     showModal: boolean;
     setShowModal: Dispatch<SetStateAction<boolean>>;
+    isModalVisible: boolean;
+    closeModal: () => void;
+    openModal: () => void;
 }
