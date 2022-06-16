@@ -1,7 +1,7 @@
 import { FC, useEffect } from 'react';
 import { RiLockPasswordFill } from 'react-icons/ri';
 import { MdAlternateEmail } from 'react-icons/md';
-import { FormikValues, useFormik } from 'formik';
+import { FormikHelpers, FormikValues, useFormik } from 'formik';
 import * as Yup from 'yup';
 import { ILoginFormFields } from './interfaces';
 import { useModalContext } from '../../../../contexts/Modal';
@@ -21,13 +21,16 @@ const LoginForm: FC = (): JSX.Element => {
                 .required('Username or email is required'),
             password: Yup.string()
                 .trim()
-                .min(3, 'Password is too short')
+                .min(8, 'Password is too short')
                 .max(255, 'Password is too long')
                 .required('Password is required')
         })
             .required()
             .noUnknown(),
-        onSubmit: (values: FormikValues, { resetForm }) => {
+        onSubmit: (
+            values: FormikValues,
+            { resetForm }: FormikHelpers<ILoginFormFields>
+        ) => {
             console.log('values: ', values);
             resetForm();
         }
