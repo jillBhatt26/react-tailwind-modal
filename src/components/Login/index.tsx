@@ -1,8 +1,7 @@
 import { FC } from 'react';
 import LoginForm from './components/Form';
-import { ILoginProps } from './interfaces';
 
-const Login: FC<ILoginProps> = (): JSX.Element => {
+const Login: FC = (): JSX.Element => {
     return (
         <div>
             <LoginForm />

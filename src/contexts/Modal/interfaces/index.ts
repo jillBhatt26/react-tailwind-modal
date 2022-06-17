@@ -9,5 +9,6 @@ export interface IModalContextProviderValue {
     setShowModal: Dispatch<SetStateAction<boolean>>;
     isModalVisible: boolean;
     closeModal: () => void;
-    openModal: () => void;
+    openModal: (modalName: string) => void;
+    currentShowingModal: string | null;
 }

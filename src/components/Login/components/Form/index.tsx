@@ -5,7 +5,7 @@ import { FormikHelpers, FormikValues, useFormik } from 'formik';
 import * as Yup from 'yup';
 import YupPassword from 'yup-password';
 import { ILoginFormFields } from './interfaces';
-import { useModalContext } from '../../../../contexts/Modal';
+import { useModalContext } from '@contexts/Modal';
 
 // extending Yup
 YupPassword(Yup);
