@@ -1,7 +1,8 @@
 import { FC } from 'react';
-import Login from './components/Login';
-import Modal from './components/Modal';
-import { useModalContext } from './contexts/Modal';
+import Login from '@components/Login';
+import Modal from '@common/Modal';
+import ModalHeader from '@common/Modal/components/Header';
+import { useModalContext } from '@contexts/Modal';
 
 const App: FC = (): JSX.Element => {
     // context
@@ -20,6 +21,7 @@ const App: FC = (): JSX.Element => {
             </button>
 
             <Modal showModal={showModal}>
+                <ModalHeader title="Log In" />
                 <Login showModal={showModal} />
             </Modal>
         </div>

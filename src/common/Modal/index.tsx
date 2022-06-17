@@ -1,7 +1,7 @@
 import { FC, useRef } from 'react';
 import { useClickAway } from 'react-use';
+import { useModalContext } from '@contexts/Modal';
 import { IModalProps } from './interfaces';
-import { useModalContext } from '../../contexts/Modal';
 
 const Modal: FC<IModalProps> = ({ children, showModal }): JSX.Element => {
     // refs
