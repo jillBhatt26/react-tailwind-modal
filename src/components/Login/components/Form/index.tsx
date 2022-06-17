@@ -3,8 +3,12 @@ import { RiLockPasswordFill } from 'react-icons/ri';
 import { MdAlternateEmail } from 'react-icons/md';
 import { FormikHelpers, FormikValues, useFormik } from 'formik';
 import * as Yup from 'yup';
+import YupPassword from 'yup-password';
 import { ILoginFormFields } from './interfaces';
 import { useModalContext } from '../../../../contexts/Modal';
+
+// extending Yup
+YupPassword(Yup);
 
 const LoginForm: FC = (): JSX.Element => {
     // formik hook
@@ -22,7 +26,21 @@ const LoginForm: FC = (): JSX.Element => {
             password: Yup.string()
                 .trim()
                 .min(8, 'Password is too short')
+                .minLowercase(
+                    1,
+                    'Password must contain at least one lowercase letter'
+                )
+                .minUppercase(
+                    1,
+                    'Password must contain at least one uppercase letter'
+                )
+                .minSymbols(
+                    1,
+                    'Password must contain at least one special character'
+                )
+                .minNumbers(1, 'Password must contain at least one number')
                 .max(255, 'Password is too long')
+
                 .required('Password is required')
         })
             .required()
