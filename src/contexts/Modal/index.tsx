@@ -1,5 +1,4 @@
 import { FC, createContext, useState, useMemo, useContext } from 'react';
-import { AnimationControls, useAnimation } from 'framer-motion';
 
 import {
     IModalContextProviderProps,
@@ -16,35 +15,16 @@ const ModalContextProvider: FC<IModalContextProviderProps> = ({ children }) => {
         string | null
     >(null);
 
-    // framer motion
-    const modalAnimationControl: AnimationControls = useAnimation();
-
     const closeModal = () => {
         setShowModal(false);
         setCurrentShowingModal(null);
         setIsModalVisible(false);
-
-        modalAnimationControl.start({
-            y: -500,
-            opacity: 0,
-            transition: {
-                duration: 0.4
-            }
-        });
     };
 
     const openModal = (modalName: string) => {
         setShowModal(true);
         setCurrentShowingModal(modalName);
         setIsModalVisible(true);
-
-        modalAnimationControl.start({
-            y: 0,
-            opacity: 1,
-            transition: {
-                duration: 0.4
-            }
-        });
     };
 
     // context values
@@ -54,8 +34,7 @@ const ModalContextProvider: FC<IModalContextProviderProps> = ({ children }) => {
         isModalVisible,
         closeModal,
         openModal,
-        currentShowingModal,
-        modalAnimationControl
+        currentShowingModal
     };
 
     return useMemo(
