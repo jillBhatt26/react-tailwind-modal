@@ -7,7 +7,7 @@ import SignUp from '@components/SignUp';
 
 const App: FC = (): JSX.Element => {
     // context
-    const { showModal, openModal, currentShowingModal } = useModalContext();
+    const { openModal, currentShowingModal } = useModalContext();
 
     return (
         <div className="text-center h-screen py-1 bg-body">
@@ -29,7 +29,7 @@ const App: FC = (): JSX.Element => {
                 Sign Up
             </button>
 
-            <Modal showModal={showModal}>
+            <Modal>
                 {currentShowingModal && (
                     <>
                         <ModalHeader
